@@ -1,0 +1,250 @@
+<!DOCTYPE html><html lang="zh-CH" data-theme="light"><head><meta charset="UTF-8"><meta http-equiv="X-UA-Compatible" content="IE=edge"><meta name="viewport" content="width=device-width, initial-scale=1.0,viewport-fit=cover"><title>ICMP | mhxiaozi'blog</title><meta name="author" content="mhxiaozi"><meta name="copyright" content="mhxiaozi"><meta name="format-detection" content="telephone=no"><meta name="theme-color" content="ffffff"><meta name="description" content="ICMP协议什么是ICMPICMP是TCP&#x2F;IP协议簇的核心协议之一，它用于在IP网络设备之间发送控制报文，传递差错、控制、查询等信息 ICMP的作用ICMP重定向 ICMP Redirect重定向消息用于支持路由功能。如图所示，主机A希望发送报文到服务器A，于是根据配置的默认网关地址向网关RTB发送报文。网关RTB收到报文后，检查报文信息，发现报文应该转发到与源主机在同一网段的另一个网">
+<meta property="og:type" content="article">
+<meta property="og:title" content="ICMP">
+<meta property="og:url" content="https://github.com/mhxiaozi/mhxiaozi.github.io/2024/01/05/ICMP/index.html">
+<meta property="og:site_name" content="mhxiaozi&#39;blog">
+<meta property="og:description" content="ICMP协议什么是ICMPICMP是TCP&#x2F;IP协议簇的核心协议之一，它用于在IP网络设备之间发送控制报文，传递差错、控制、查询等信息 ICMP的作用ICMP重定向 ICMP Redirect重定向消息用于支持路由功能。如图所示，主机A希望发送报文到服务器A，于是根据配置的默认网关地址向网关RTB发送报文。网关RTB收到报文后，检查报文信息，发现报文应该转发到与源主机在同一网段的另一个网">
+<meta property="og:locale" content="zh_CH">
+<meta property="og:image" content="https://s2.loli.net/2024/02/12/N24nxV5UfsZ6k7u.png">
+<meta property="article:published_time" content="2024-01-05T14:00:21.000Z">
+<meta property="article:modified_time" content="2024-02-12T14:05:06.492Z">
+<meta property="article:author" content="mhxiaozi">
+<meta property="article:tag" content="网络基础知识，ICMP,随记">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="https://s2.loli.net/2024/02/12/N24nxV5UfsZ6k7u.png"><link rel="shortcut icon" href="/img/favicon.png"><link rel="canonical" href="https://github.com/mhxiaozi/mhxiaozi.github.io/2024/01/05/ICMP/index.html"><link rel="preconnect" href="//cdn.jsdelivr.net"/><link rel="preconnect" href="//busuanzi.ibruce.info"/><link rel="stylesheet" href="/css/index.css?v=4.12.0"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@6.5.1/css/all.min.css"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/node-snackbar@0.1.16/dist/snackbar.min.css" media="print" onload="this.media='all'"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fancyapps/ui@5.0.32/dist/fancybox/fancybox.min.css" media="print" onload="this.media='all'"><script>const GLOBAL_CONFIG = {
+  root: '/',
+  algolia: undefined,
+  localSearch: {"path":"/search.xml","preload":true,"top_n_per_article":1,"unescape":false,"languages":{"hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found"}},
+  translate: {"defaultEncoding":2,"translateDelay":0,"msgToTraditionalChinese":"繁","msgToSimplifiedChinese":"简"},
+  noticeOutdate: {"limitDay":365,"position":"top","messagePrev":"It has been","messageNext":"days since the last update, the content of the article may be outdated."},
+  highlight: {"plugin":"highlight.js","highlightCopy":true,"highlightLang":true,"highlightHeightLimit":230},
+  copy: {
+    success: 'Copy Successful',
+    error: 'Copy Error',
+    noSupport: 'Browser Not Supported'
+  },
+  relativeDate: {
+    homepage: true,
+    post: true
+  },
+  runtime: 'days',
+  dateSuffix: {
+    just: 'Just now',
+    min: 'minutes ago',
+    hour: 'hours ago',
+    day: 'days ago',
+    month: 'months ago'
+  },
+  copyright: undefined,
+  lightbox: 'fancybox',
+  Snackbar: {"chs_to_cht":"You have switched to Traditional Chinese","cht_to_chs":"You have switched to Simplified Chinese","day_to_night":"You have switched to Dark Mode","night_to_day":"You have switched to Light Mode","bgLight":"#49b1f5","bgDark":"#1f1f1f","position":"top-right"},
+  infinitegrid: {
+    js: 'https://cdn.jsdelivr.net/npm/@egjs/infinitegrid@4.11.0/dist/infinitegrid.min.js',
+    buttonText: 'Load More'
+  },
+  isPhotoFigcaption: false,
+  islazyload: true,
+  isAnchor: false,
+  percent: {
+    toc: true,
+    rightside: false,
+  },
+  autoDarkmode: false
+}</script><script id="config-diff">var GLOBAL_CONFIG_SITE = {
+  title: 'ICMP',
+  isPost: true,
+  isHome: false,
+  isHighlightShrink: true,
+  isToc: true,
+  postUpdate: '2024-02-12 22:05:06'
+}</script><script>(win=>{
+      win.saveToLocal = {
+        set: (key, value, ttl) => {
+          if (ttl === 0) return
+          const now = Date.now()
+          const expiry = now + ttl * 86400000
+          const item = {
+            value,
+            expiry
+          }
+          localStorage.setItem(key, JSON.stringify(item))
+        },
+      
+        get: key => {
+          const itemStr = localStorage.getItem(key)
+      
+          if (!itemStr) {
+            return undefined
+          }
+          const item = JSON.parse(itemStr)
+          const now = Date.now()
+      
+          if (now > item.expiry) {
+            localStorage.removeItem(key)
+            return undefined
+          }
+          return item.value
+        }
+      }
+    
+      win.getScript = (url, attr = {}) => new Promise((resolve, reject) => {
+        const script = document.createElement('script')
+        script.src = url
+        script.async = true
+        script.onerror = reject
+        script.onload = script.onreadystatechange = function() {
+          const loadState = this.readyState
+          if (loadState && loadState !== 'loaded' && loadState !== 'complete') return
+          script.onload = script.onreadystatechange = null
+          resolve()
+        }
+
+        Object.keys(attr).forEach(key => {
+          script.setAttribute(key, attr[key])
+        })
+
+        document.head.appendChild(script)
+      })
+    
+      win.getCSS = (url, id = false) => new Promise((resolve, reject) => {
+        const link = document.createElement('link')
+        link.rel = 'stylesheet'
+        link.href = url
+        if (id) link.id = id
+        link.onerror = reject
+        link.onload = link.onreadystatechange = function() {
+          const loadState = this.readyState
+          if (loadState && loadState !== 'loaded' && loadState !== 'complete') return
+          link.onload = link.onreadystatechange = null
+          resolve()
+        }
+        document.head.appendChild(link)
+      })
+    
+      win.activateDarkMode = () => {
+        document.documentElement.setAttribute('data-theme', 'dark')
+        if (document.querySelector('meta[name="theme-color"]') !== null) {
+          document.querySelector('meta[name="theme-color"]').setAttribute('content', '#0d0d0d')
+        }
+      }
+      win.activateLightMode = () => {
+        document.documentElement.setAttribute('data-theme', 'light')
+        if (document.querySelector('meta[name="theme-color"]') !== null) {
+          document.querySelector('meta[name="theme-color"]').setAttribute('content', 'ffffff')
+        }
+      }
+      const t = saveToLocal.get('theme')
+    
+        if (t === 'dark') activateDarkMode()
+        else if (t === 'light') activateLightMode()
+      
+      const asideStatus = saveToLocal.get('aside-status')
+      if (asideStatus !== undefined) {
+        if (asideStatus === 'hide') {
+          document.documentElement.classList.add('hide-aside')
+        } else {
+          document.documentElement.classList.remove('hide-aside')
+        }
+      }
+    
+      const detectApple = () => {
+        if(/iPad|iPhone|iPod|Macintosh/.test(navigator.userAgent)){
+          document.documentElement.classList.add('apple')
+        }
+      }
+      detectApple()
+    })(window)</script><meta name="generator" content="Hexo 6.3.0"></head><body><div id="web_bg"></div><div id="sidebar"><div id="menu-mask"></div><div id="sidebar-menus"><div class="avatar-img is-center"><img src= "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" data-lazy-src="/img/avatar.png" onerror="onerror=null;src='/img/friend_404.gif'" alt="avatar"/></div><div class="sidebar-site-data site-data is-center"><a href="/archives/"><div class="headline">Articles</div><div class="length-num">7</div></a><a href="/tags/"><div class="headline">Tags</div><div class="length-num">5</div></a><a href="/categories/"><div class="headline">Categories</div><div class="length-num">1</div></a></div><hr class="custom-hr"/><div class="menus_items"><div class="menus_item"><a class="site-page" href="/"><i class="fa-fw fas fa-home"></i><span> 首页</span></a></div><div class="menus_item"><a class="site-page" href="/archives/"><i class="fa-fw fas fa-archive"></i><span> 归档</span></a></div><div class="menus_item"><a class="site-page" href="/tags/"><i class="fa-fw fas fa-tags"></i><span> 标签</span></a></div><div class="menus_item"><a class="site-page" href="/categories/"><i class="fa-fw fas fa-folder-open"></i><span> 分类</span></a></div><div class="menus_item"><a class="site-page group hide" href="javascript:void(0);"><i class="fa-fw fas fa-list"></i><span> 列表</span><i class="fas fa-chevron-down"></i></a><ul class="menus_item_child"><li><a class="site-page child" href="/music/"><i class="fa-fw fas fa-music"></i><span> 音乐</span></a></li><li><a class="site-page child" href="/movies/"><i class="fa-fw fas fa-video"></i><span> 电影</span></a></li></ul></div><div class="menus_item"><a class="site-page" href="/link/"><i class="fa-fw fas fa-link"></i><span> 友链</span></a></div><div class="menus_item"><a class="site-page" href="/about/"><i class="fa-fw fas fa-heart"></i><span> 有关</span></a></div></div></div></div><div class="post" id="body-wrap"><header class="post-bg" id="page-header" style="background-image: url('https://s2.loli.net/2024/02/12/N24nxV5UfsZ6k7u.png')"><nav id="nav"><span id="blog-info"><a href="/" title="mhxiaozi'blog"><span class="site-name">mhxiaozi'blog</span></a></span><div id="menus"><div id="search-button"><a class="site-page social-icon search" href="javascript:void(0);"><i class="fas fa-search fa-fw"></i><span> Search</span></a></div><div class="menus_items"><div class="menus_item"><a class="site-page" href="/"><i class="fa-fw fas fa-home"></i><span> 首页</span></a></div><div class="menus_item"><a class="site-page" href="/archives/"><i class="fa-fw fas fa-archive"></i><span> 归档</span></a></div><div class="menus_item"><a class="site-page" href="/tags/"><i class="fa-fw fas fa-tags"></i><span> 标签</span></a></div><div class="menus_item"><a class="site-page" href="/categories/"><i class="fa-fw fas fa-folder-open"></i><span> 分类</span></a></div><div class="menus_item"><a class="site-page group hide" href="javascript:void(0);"><i class="fa-fw fas fa-list"></i><span> 列表</span><i class="fas fa-chevron-down"></i></a><ul class="menus_item_child"><li><a class="site-page child" href="/music/"><i class="fa-fw fas fa-music"></i><span> 音乐</span></a></li><li><a class="site-page child" href="/movies/"><i class="fa-fw fas fa-video"></i><span> 电影</span></a></li></ul></div><div class="menus_item"><a class="site-page" href="/link/"><i class="fa-fw fas fa-link"></i><span> 友链</span></a></div><div class="menus_item"><a class="site-page" href="/about/"><i class="fa-fw fas fa-heart"></i><span> 有关</span></a></div></div><div id="toggle-menu"><a class="site-page" href="javascript:void(0);"><i class="fas fa-bars fa-fw"></i></a></div></div></nav><div id="post-info"><h1 class="post-title">ICMP</h1><div id="post-meta"><div class="meta-firstline"><span class="post-meta-date"><i class="far fa-calendar-alt fa-fw post-meta-icon"></i><span class="post-meta-label">Created</span><time class="post-meta-date-created" datetime="2024-01-05T14:00:21.000Z" title="Created 2024-01-05 22:00:21">2024-01-05</time><span class="post-meta-separator">|</span><i class="fas fa-history fa-fw post-meta-icon"></i><span class="post-meta-label">Updated</span><time class="post-meta-date-updated" datetime="2024-02-12T14:05:06.492Z" title="Updated 2024-02-12 22:05:06">2024-02-12</time></span></div><div class="meta-secondline"><span class="post-meta-separator">|</span><span class="post-meta-wordcount"><i class="far fa-file-word fa-fw post-meta-icon"></i><span class="post-meta-label">Word Count:</span><span class="word-count">1.5k</span><span class="post-meta-separator">|</span><i class="far fa-clock fa-fw post-meta-icon"></i><span class="post-meta-label">Reading Time:</span><span>4mins</span></span><span class="post-meta-separator">|</span><span class="post-meta-pv-cv" id="" data-flag-title="ICMP"><i class="far fa-eye fa-fw post-meta-icon"></i><span class="post-meta-label">Post Views:</span><span id="busuanzi_value_page_pv"><i class="fa-solid fa-spinner fa-spin"></i></span></span></div></div></div></header><main class="layout" id="content-inner"><div id="post"><article class="post-content" id="article-container"><h1 id="ICMP协议"><a href="#ICMP协议" class="headerlink" title="ICMP协议"></a>ICMP协议</h1><h2 id="什么是ICMP"><a href="#什么是ICMP" class="headerlink" title="什么是ICMP"></a>什么是ICMP</h2><p>ICMP是TCP&#x2F;IP协议簇的核心协议之一，它用于在IP网络设备之间发送<strong>控制报文</strong>，<strong>传递差错</strong>、<strong>控制</strong>、<strong>查询</strong>等信息</p>
+<h2 id="ICMP的作用"><a href="#ICMP的作用" class="headerlink" title="ICMP的作用"></a>ICMP的作用</h2><h3 id="ICMP重定向"><a href="#ICMP重定向" class="headerlink" title="ICMP重定向"></a>ICMP重定向</h3><p><img src= "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" data-lazy-src="https://s2.loli.net/2024/02/12/j9Ov8NWcVbhCxAI.png" alt="Snipaste_2024-02-12_15-49-29.png"></p>
+<p>ICMP Redirect重定向消息用于支持<strong>路由功能</strong>。如图所示，主机A希望发送报文到服务器A，于是根据配置的默认网关地址向网关RTB发送报文。网关RTB收到报文后，检查报文信息，发现报文应该转发到与源主机在同一网段的另一个网关设备RTA，因为此转发路径是更优的路径。所以RTB会向主机发送一个Redirect消息，通知主机直接向另一个网关RTA发送该报文。主机收到Redirect消息后，向RTA发送报文，RTA会将报文转发给服务器A。</p>
+<h3 id="ICMP差错检查"><a href="#ICMP差错检查" class="headerlink" title="ICMP差错检查"></a>ICMP差错检查</h3><p>ICMP Echo消息通常用于<strong>诊断源</strong>和<strong>目的</strong>之间的<strong>网络连通性</strong></p>
+<p><img src= "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" data-lazy-src="https://s2.loli.net/2024/02/12/dqMLfEXYvhBVjul.png" alt="Snipaste_2024-02-12_15-56-34.png"></p>
+<p>ICMP Echo Request&amp;Reply 分别用来<strong>查询</strong>和<strong>响应</strong>某些信息，进行<strong>差错检测</strong></p>
+<h3 id="ICMP错误报告"><a href="#ICMP错误报告" class="headerlink" title="ICMP错误报告"></a>ICMP错误报告</h3><p>ICMP定义了各种错误消息，用于诊断网络连接性问题；根据这些错误消息，源设备可以判断出数据传输失败的原因</p>
+<p>比如，如果网络中发生了环路，导致报文在网络中循环，最终TTL超时，这种情况下网络设备会发送TTL超时消息给发送端设备。又比如如果目的不可达，则中间的网络设备会发送目的不可达消息给发送端设备。目的不可达的情况有多种，如果是网络设备无法找到目的网络，则发送目的网络不可达消息；如果网络设备无法找到目的网络中的目的主机，则发送目的主机不可达消息。</p>
+<p><img src= "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" data-lazy-src="https://s2.loli.net/2024/02/12/KaiIPoWYC3MumzL.png" alt="Snipaste_2024-02-12_16-02-08.png"></p>
+<p>当网络设备无法访问目标时，会自动发送ICMP目的不可达报文到发送端设备</p>
+<h4 id="什么是TTL"><a href="#什么是TTL" class="headerlink" title="什么是TTL"></a>什么是TTL</h4><p>TTL (Time To Live) 是 IP 报文中的一个字段，用于限制报文在网络中可以经过的最大路由器数量。每当 IP 报文通过一个路由器时，TTL 值减少 1。当 TTL 值减少到 0 时，路由器会丢弃该报文，并向报文的源主机发送 ICMP Time Exceeded 消息。TTL 的目的是防止在网络中出现循环路由，并确保报文不会永远在网络中存在，从而防止网络拥塞。TTL 值通常在报文被发送时设置，并且可以根据网络的配置进行调整。</p>
+<h2 id="ICMP数据包格式"><a href="#ICMP数据包格式" class="headerlink" title="ICMP数据包格式"></a>ICMP数据包格式</h2><p><img src= "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" data-lazy-src="https://s2.loli.net/2024/02/12/unGQgsqrE8vf3oC.png" alt="Snipaste_2024-02-12_16-06-57.png"></p>
+<p>ICMP消息格式封装在IP报文中，格式取决于Type字段和Code字段</p>
+<p>Type字段为消息字段，Code字段包含消息类型的具体参数，Checksum用于检查消息是否完整</p>
+<p>消息中包含32个比特的可变参数，通常设置为0</p>
+<h2 id="ICMP消息类型和编码类型"><a href="#ICMP消息类型和编码类型" class="headerlink" title="ICMP消息类型和编码类型"></a>ICMP消息类型和编码类型</h2><table>
+<thead>
+<tr>
+<th>类型</th>
+<th>编码</th>
+<th>描述</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>0</td>
+<td>0</td>
+<td>Echo Reply</td>
+</tr>
+<tr>
+<td>3</td>
+<td>0</td>
+<td>网络不可达</td>
+</tr>
+<tr>
+<td>3</td>
+<td>1</td>
+<td>主机不可达</td>
+</tr>
+<tr>
+<td>3</td>
+<td>2</td>
+<td>协议不可达</td>
+</tr>
+<tr>
+<td>3</td>
+<td>3</td>
+<td>端口不可达</td>
+</tr>
+<tr>
+<td>5</td>
+<td>0</td>
+<td>重定向</td>
+</tr>
+<tr>
+<td>8</td>
+<td>0</td>
+<td>Echo Request</td>
+</tr>
+</tbody></table>
+<p>ICMP定义了多种消息类型，用于不同的场景。有些消息不需要Code字段来描述具体类型参数，仅用Type字段表示消息类型。比如，ICMP Echo回复消息的Type字段设置为0。</p>
+<p>有些ICMP消息使用Type字段定义消息大类，用Code字段表示消息的具体类型。比如，类型为3的消息表示目的不可达，不同的Code值表示不可达的原因，包括目的网络不可达(Code&#x3D;0)、目的主机不可达(Code&#x3D;1)、协议不可达（Code&#x3D;2）、目的TCP&#x2F;UDP端口不可达(Code&#x3D;3) 等。</p>
+<h2 id="ICMP典型应用"><a href="#ICMP典型应用" class="headerlink" title="ICMP典型应用"></a>ICMP典型应用</h2><h3 id="Ping"><a href="#Ping" class="headerlink" title="Ping"></a>Ping</h3><p>Ping是检测网络连通性的常用工具，同时也能够收集其他相关信息</p>
+<p>用户可以在Ping命令中指定不同参数，如ICMP报文长度、发送的ICMP报文个数、等待回复响应的超时时间等，设备根据配置的参数来构造并发送ICMP报文，进行Ping测试</p>
+<h4 id="返回参数"><a href="#返回参数" class="headerlink" title="返回参数"></a>返回参数</h4><p>Ping命令的输出信息中包括目的地址、ICMP报文长度、序号、TTL值、以及往返时间</p>
+<p>序号是包含在Echo回复消息（Type&#x3D;0）中的可变参数字段，TTL和往返时间包含在消息的IP头中</p>
+<h3 id="Tracert"><a href="#Tracert" class="headerlink" title="Tracert"></a>Tracert</h3><p>Tracert基于报文头中的TTL值来逐跳跟踪报文的转发路径</p>
+<p>为了跟踪到达某特定目的地址的路径，源端首先将报文的TTL值设置为1。该报文到达第一个节点后，TTL超时，于是该节点向源端发送TTL超时消息，消息中携带时间戳</p>
+<p>然后源端将报文的TTL值设置为2，报文到达第二个节点后超时，该节点同样返回TTL超时消息，以此类推，直到报文到达目的地</p>
+<p>这样，源端根据返回的报文中的信息可以跟踪到报文经过的每一个节点，并根据时间戳信息计算往返时间。Tracert是检测网络丢包及时延的有效手段，同时可以帮助管理员发现网络中的路由环路</p>
+<h4 id="返回参数-1"><a href="#返回参数-1" class="headerlink" title="返回参数"></a>返回参数</h4><ol>
+<li>代表第几跳（数字为几就是第几跳）；例：代表第一跳，即从本地计算机出发到第一个路由器的跳数</li>
+<li>是第几跳的路由器的 IP 地址</li>
+<li>表示从上一跳路由器到这一跳路由器的响应时间（如果这一跳是第一跳，那么上一跳路由器就表示本地计算机）</li>
+<li>表示从上一跳路由器到这一跳路由器的第二次响应时间（如果这一跳是第一跳，那么上一跳路由器就表示本地计算机）</li>
+<li>表示从上一跳路由器到这一跳路由器的第三次响应时间（如果这一跳是第一跳，那么上一跳路由器就表示本地计算机）</li>
+</ol>
+</article><div class="post-copyright"><div class="post-copyright__author"><span class="post-copyright-meta"><i class="fas fa-circle-user fa-fw"></i>Author: </span><span class="post-copyright-info"><a href="https://github.com/mhxiaozi/mhxiaozi.github.io">mhxiaozi</a></span></div><div class="post-copyright__type"><span class="post-copyright-meta"><i class="fas fa-square-arrow-up-right fa-fw"></i>Link: </span><span class="post-copyright-info"><a href="https://github.com/mhxiaozi/mhxiaozi.github.io/2024/01/05/ICMP/">https://github.com/mhxiaozi/mhxiaozi.github.io/2024/01/05/ICMP/</a></span></div><div class="post-copyright__notice"><span class="post-copyright-meta"><i class="fas fa-circle-exclamation fa-fw"></i>Copyright Notice: </span><span class="post-copyright-info">All articles in this blog are licensed under <a target="_blank" rel="noopener" href="https://creativecommons.org/licenses/by-nc-sa/4.0/">CC BY-NC-SA 4.0</a> unless stating additionally.</span></div></div><div class="tag_share"><div class="post-meta__tag-list"><a class="post-meta__tags" href="/tags/%E7%BD%91%E7%BB%9C%E5%9F%BA%E7%A1%80%E7%9F%A5%E8%AF%86%EF%BC%8CICMP-%E9%9A%8F%E8%AE%B0/">网络基础知识，ICMP,随记</a></div><div class="post_share"><div class="social-share" data-image="https://s2.loli.net/2024/02/12/N24nxV5UfsZ6k7u.png" data-sites="facebook,twitter,wechat,weibo,qq"></div><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/butterfly-extsrc@1.1.3/sharejs/dist/css/share.min.css" media="print" onload="this.media='all'"><script src="https://cdn.jsdelivr.net/npm/butterfly-extsrc@1.1.3/sharejs/dist/js/social-share.min.js" defer></script></div></div><div class="post-reward"><div class="reward-button"><i class="fas fa-qrcode"></i>打赏</div><div class="reward-main"><ul class="reward-all"><li class="reward-item"><a href="/img/wechat.jpg" target="_blank"><img class="post-qr-code-img" src= "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" data-lazy-src="/img/wechat.jpg" alt="微信"/></a><div class="post-qr-code-desc">微信</div></li><li class="reward-item"><a href="/img/alipay.jpg" target="_blank"><img class="post-qr-code-img" src= "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" data-lazy-src="/img/alipay.jpg" alt="支付宝"/></a><div class="post-qr-code-desc">支付宝</div></li></ul></div></div></div><div class="aside-content" id="aside-content"><div class="card-widget card-info"><div class="is-center"><div class="avatar-img"><img src= "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" data-lazy-src="/img/avatar.png" onerror="this.onerror=null;this.src='/img/friend_404.gif'" alt="avatar"/></div><div class="author-info__name">mhxiaozi</div><div class="author-info__description">与其期待明天，不如过好今天</div></div><div class="card-info-data site-data is-center"><a href="/archives/"><div class="headline">Articles</div><div class="length-num">7</div></a><a href="/tags/"><div class="headline">Tags</div><div class="length-num">5</div></a><a href="/categories/"><div class="headline">Categories</div><div class="length-num">1</div></a></div><a id="card-info-btn" href="https://github.com/mhxiaozi"><i class="fab fa-github"></i><span>作者</span></a><div class="card-info-social-icons is-center"><a class="social-icon" href="https://github.com/mhxiaozi" target="_blank" title="Github"><i class="fab fa-github" style="color: #24292e;"></i></a><a class="social-icon" href="mailto:3075701775@qq.com" target="_blank" title="Email"><i class="fas fa-envelope" style="color: #4a7dbe;"></i></a></div></div><div class="card-widget card-announcement"><div class="item-headline"><i class="fas fa-bullhorn fa-shake"></i><span>Announcement</span></div><div class="announcement_content">欢迎来到我的博客！</div></div><div class="sticky_layout"><div class="card-widget" id="card-toc"><div class="item-headline"><i class="fas fa-stream"></i><span>Contents</span><span class="toc-percentage"></span></div><div class="toc-content"><ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#ICMP%E5%8D%8F%E8%AE%AE"><span class="toc-number">1.</span> <span class="toc-text">ICMP协议</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E4%BB%80%E4%B9%88%E6%98%AFICMP"><span class="toc-number">1.1.</span> <span class="toc-text">什么是ICMP</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#ICMP%E7%9A%84%E4%BD%9C%E7%94%A8"><span class="toc-number">1.2.</span> <span class="toc-text">ICMP的作用</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#ICMP%E9%87%8D%E5%AE%9A%E5%90%91"><span class="toc-number">1.2.1.</span> <span class="toc-text">ICMP重定向</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#ICMP%E5%B7%AE%E9%94%99%E6%A3%80%E6%9F%A5"><span class="toc-number">1.2.2.</span> <span class="toc-text">ICMP差错检查</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#ICMP%E9%94%99%E8%AF%AF%E6%8A%A5%E5%91%8A"><span class="toc-number">1.2.3.</span> <span class="toc-text">ICMP错误报告</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#%E4%BB%80%E4%B9%88%E6%98%AFTTL"><span class="toc-number">1.2.3.1.</span> <span class="toc-text">什么是TTL</span></a></li></ol></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#ICMP%E6%95%B0%E6%8D%AE%E5%8C%85%E6%A0%BC%E5%BC%8F"><span class="toc-number">1.3.</span> <span class="toc-text">ICMP数据包格式</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#ICMP%E6%B6%88%E6%81%AF%E7%B1%BB%E5%9E%8B%E5%92%8C%E7%BC%96%E7%A0%81%E7%B1%BB%E5%9E%8B"><span class="toc-number">1.4.</span> <span class="toc-text">ICMP消息类型和编码类型</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#ICMP%E5%85%B8%E5%9E%8B%E5%BA%94%E7%94%A8"><span class="toc-number">1.5.</span> <span class="toc-text">ICMP典型应用</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#Ping"><span class="toc-number">1.5.1.</span> <span class="toc-text">Ping</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#%E8%BF%94%E5%9B%9E%E5%8F%82%E6%95%B0"><span class="toc-number">1.5.1.1.</span> <span class="toc-text">返回参数</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Tracert"><span class="toc-number">1.5.2.</span> <span class="toc-text">Tracert</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#%E8%BF%94%E5%9B%9E%E5%8F%82%E6%95%B0-1"><span class="toc-number">1.5.2.1.</span> <span class="toc-text">返回参数</span></a></li></ol></li></ol></li></ol></li></ol></div></div></div></div></main><footer id="footer" style="background-image: url('https://s2.loli.net/2024/02/12/N24nxV5UfsZ6k7u.png')"><div id="footer-wrap"><div class="copyright">&copy;2023 - 2024 By mhxiaozi</div><div class="framework-info"><span>Framework </span><a target="_blank" rel="noopener" href="https://hexo.io">Hexo</a><span class="footer-separator">|</span><span>Theme </span><a href="https://github.com/jerryc127/hexo-theme-butterfly">Butterfly</a></div></div></footer></div><div id="rightside"><div id="rightside-config-hide"><button id="readmode" type="button" title="Read Mode"><i class="fas fa-book-open"></i></button><button id="translateLink" type="button" title="Toggle Between Traditional Chinese And Simplified Chinese">繁</button><button id="darkmode" type="button" title="Toggle Between Light And Dark Mode"><i class="fas fa-adjust"></i></button><button id="hide-aside-btn" type="button" title="Toggle between Single-column and Double-column"><i class="fas fa-arrows-alt-h"></i></button></div><div id="rightside-config-show"><button id="rightside-config" type="button" title="Setting"><i class="fas fa-cog fa-spin"></i></button><button class="close" id="mobile-toc-button" type="button" title="Table Of Contents"><i class="fas fa-list-ul"></i></button><button id="go-up" type="button" title="Back To Top"><span class="scroll-percent"></span><i class="fas fa-arrow-up"></i></button></div></div><div><script src="/js/utils.js?v=4.12.0"></script><script src="/js/main.js?v=4.12.0"></script><script src="/js/tw_cn.js?v=4.12.0"></script><script src="https://cdn.jsdelivr.net/npm/@fancyapps/ui@5.0.32/dist/fancybox/fancybox.umd.min.js"></script><script src="https://cdn.jsdelivr.net/npm/instant.page@5.2.0/instantpage.min.js" type="module"></script><script src="https://cdn.jsdelivr.net/npm/vanilla-lazyload@17.8.5/dist/lazyload.iife.min.js"></script><script src="https://cdn.jsdelivr.net/npm/node-snackbar@0.1.16/dist/snackbar.min.js"></script><script>function panguFn () {
+  if (typeof pangu === 'object') pangu.autoSpacingPage()
+  else {
+    getScript('https://cdn.jsdelivr.net/npm/pangu@4.0.7/dist/browser/pangu.min.js')
+      .then(() => {
+        pangu.autoSpacingPage()
+      })
+  }
+}
+
+function panguInit () {
+  if (false){
+    GLOBAL_CONFIG_SITE.isPost && panguFn()
+  } else {
+    panguFn()
+  }
+}
+
+document.addEventListener('DOMContentLoaded', panguInit)</script><div class="js-pjax"></div><script id="canvas_nest" defer="defer" color="0,0,255" opacity="0.7" zIndex="-1" count="24" mobile="false" src="https://cdn.jsdelivr.net/npm/butterfly-extsrc@1.1.3/dist/canvas-nest.min.js"></script><script async data-pjax src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script><div id="local-search"><div class="search-dialog"><nav class="search-nav"><span class="search-dialog-title">Search</span><span id="loading-status"></span><button class="search-close-button"><i class="fas fa-times"></i></button></nav><div class="is-center" id="loading-database"><i class="fas fa-spinner fa-pulse"></i><span>  Loading the Database</span></div><div class="search-wrap"><div id="local-search-input"><div class="local-search-box"><input class="local-search-box--input" placeholder="Search for Posts" type="text"/></div></div><hr/><div id="local-search-results"></div><div id="local-search-stats-wrap"></div></div></div><div id="search-mask"></div><script src="/js/search/local-search.js?v=4.12.0"></script></div></div></body></html>
