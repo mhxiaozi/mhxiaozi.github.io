@@ -42,6 +42,31 @@
     
     
     <entry>
+      <title>零碎笔记</title>
+      <link href="/2023/12/20/%E9%9B%B6%E7%A2%8E%E7%AC%94%E8%AE%B0/"/>
+      <url>/2023/12/20/%E9%9B%B6%E7%A2%8E%E7%AC%94%E8%AE%B0/</url>
+      
+        <content type="html"><![CDATA[<h1 id="零碎笔记"><a href="#零碎笔记" class="headerlink" title="零碎笔记"></a>零碎笔记</h1><h2 id="什么是通信"><a href="#什么是通信" class="headerlink" title="什么是通信"></a>什么是通信</h2><p>通信就是通过媒介（介质）和行为信息的传递与交流</p><h2 id="网络常见设备"><a href="#网络常见设备" class="headerlink" title="网络常见设备"></a>网络常见设备</h2><ul><li>交换机：二层（不能配IP地址，是个透明设备）、三层交换机</li><li>路由器：处在网络层</li><li>防火墙：网络安全设备</li><li>AC：有三层交换机的一些功能，类似于三层交换机</li><li>AP</li></ul><h2 id="网络常见术语"><a href="#网络常见术语" class="headerlink" title="网络常见术语"></a>网络常见术语</h2><table><thead><tr><th>术语</th><th>说明</th></tr></thead><tbody><tr><td>数据载荷</td><td>最终想要传递的数据</td></tr><tr><td>报文</td><td>网络中交换与传输的数据单元（数据包）</td></tr><tr><td>头部</td><td>在数据载荷前面添加的信息段</td></tr><tr><td>尾部</td><td>在数据载荷后面添加的信息段</td></tr><tr><td>封装</td><td>形成报文的过程，对数据载荷添加头部和尾部</td></tr><tr><td>解封装</td><td>获取数据载荷的过程，去掉报文中的头部和尾部</td></tr><tr><td>网关</td><td>提供协议转换、路由选择、数据交换等功能的网络设备</td></tr><tr><td>路由器</td><td>为报文选择传递路径的网络设备</td></tr><tr><td>终端设备</td><td>数据通信系统的设备，作为数据的发送者或接收者</td></tr></tbody></table><h2 id="DNS"><a href="#DNS" class="headerlink" title="DNS"></a>DNS</h2><p>DNS是将域名（网址）解析（或叫翻译）成ip地址的工具</p><h2 id="端口"><a href="#端口" class="headerlink" title="端口"></a>端口</h2><h3 id="端口的作用"><a href="#端口的作用" class="headerlink" title="端口的作用"></a>端口的作用</h3><p>当数据被发送到服务器后，服务器通过查看端口识别其他请求的应用服务，将报文发送给相应的程序模块处理</p><h3 id="常见的端口号及相关报文"><a href="#常见的端口号及相关报文" class="headerlink" title="常见的端口号及相关报文"></a>常见的端口号及相关报文</h3><table><thead><tr><th>类型</th><th>连接方式</th><th>端口号</th></tr></thead><tbody><tr><td>QQ</td><td>UDP</td><td>8000</td></tr><tr><td>DNS</td><td>UDP</td><td>53</td></tr><tr><td>HTTP（上网）</td><td>TCP</td><td>80</td></tr><tr><td>HTTPS（加密上网）</td><td>TCP</td><td>443</td></tr><tr><td>tpkt（远程桌面）</td><td>TCP</td><td>3389</td></tr><tr><td>dhcp（动态获取地址）</td><td>UDP</td><td>67&amp;&amp;68</td></tr><tr><td>telnet（远程管理和控制）</td><td>TCP</td><td>23</td></tr><tr><td>SSH（远程控制）</td><td>TCP</td><td>22</td></tr><tr><td>FTP（文件传输）</td><td>TCP</td><td>20&amp;&amp;21</td></tr></tbody></table><h2 id="网络设备图标"><a href="#网络设备图标" class="headerlink" title="网络设备图标"></a>网络设备图标</h2><p><img src="https://s2.loli.net/2024/02/20/egtWR8hkjUJ3Fqa.png" alt="Snipaste_2024-02-20_14-43-33.png"></p><h2 id="网络拓扑结构"><a href="#网络拓扑结构" class="headerlink" title="网络拓扑结构"></a>网络拓扑结构</h2><p><img src="https://s2.loli.net/2024/02/20/bTapX6qhGlmYoDV.png" alt="Snipaste_2024-02-20_15-29-39.png"></p><h2 id="网络协议模型"><a href="#网络协议模型" class="headerlink" title="网络协议模型"></a>网络协议模型</h2><p>现在主流的TCP&#x2F;IP模型是参考OSI模型</p><p>OSI模型后三层分的太过于细，现实中并不需要这么细，所以有了现在的TCP&#x2F;IP模型</p><p><img src="https://s2.loli.net/2024/02/20/Eb5FHcXdGzs62py.png" alt="Snipaste_2024-02-20_15-54-09.png"></p><h2 id="TCP-IP各层中常见的协议"><a href="#TCP-IP各层中常见的协议" class="headerlink" title="TCP&#x2F;IP各层中常见的协议"></a>TCP&#x2F;IP各层中常见的协议</h2><p><img src="https://s2.loli.net/2024/02/20/q6In3kZx71wfJmD.png" alt="Snipaste_2024-02-20_15-56-38.png"></p><h2 id="华为ENSP"><a href="#华为ENSP" class="headerlink" title="华为ENSP"></a>华为ENSP</h2><h4 id="基本指令简介："><a href="#基本指令简介：" class="headerlink" title="基本指令简介："></a>基本指令简介：</h4><p>&lt;  &gt; 用户视图（user-viewer）模式：权限低，只能执行调试、查看类指令</p><p>[  ] 系统视图（system-viewer）模式：权限高，能对设备配置进行修改</p><p><cr> 回车符</p><p>more：回车键显示一行，空格键翻一页，其他键中止显示</p><p>？ 命令查看符（任何模式都能使用）</p><p>Ethernet 接口网速：100Mbps</p><p>GigabitEthernet 接口网速：1000Mbps</p><p>physical：down   物理状态：表示线路没插好，插好则为 up</p><p>protocol：down   协议状态：表示IP地址配置不正确，正确则为 up</p><p>ctrl + z 直接回到用户模式</p><p>tab 补全命令</p><h5 id="用户视图指令"><a href="#用户视图指令" class="headerlink" title="用户视图指令"></a>用户视图指令</h5><p>&lt;  &gt;    system-view 由用户模式进入系统模式[  ]</p><p>&lt;  &gt;  language-mode Chinese  将日志提示语言更改为中文</p><p>（不常用）&lt;  &gt;  clock timezone time-zone-name{ add | minus } offset  用来对本地时区信息进行设置</p><p>（不常用）&lt;  &gt;  clock datetime [utc] HH:MM:SS YYYY-MM-DD  用来设置设备当前或UTC日期和时间</p><p>&lt;  &gt;  save+敲两下回车  保存</p><p>&lt;  &gt;  display current-configuration 查看当前正执行的所有配置</p><p>&lt;  &gt;  display save-configuration  查看保存的配置</p><p>&lt;  &gt;  display ip interface brief  显示接口摘要信息</p><p>&lt;  &gt;  reset save-configuration  清空配置</p><h5 id="系统视图指令"><a href="#系统视图指令" class="headerlink" title="系统视图指令"></a>系统视图指令</h5><p>[  ]  quit  退出当前模式</p><p>[  ]  sysname xx  将设备名更改为xx</p><p>[  ]  undo info-center enable 关闭信息中心，不再弹出日志（注：undo xxx 有  关闭xxx，删除xxx，使xxx不生效  的意思）</p><p>[  ]  int e0&#x2F;0&#x2F;0  进入接口 e0&#x2F;0&#x2F;0</p><h6 id="进入接口后才能进行配置的命令"><a href="#进入接口后才能进行配置的命令" class="headerlink" title="进入接口后才能进行配置的命令"></a>进入接口后才能进行配置的命令</h6><p>[  ]  ip add 192.168.1.1 24  配置IP地址为192.168.1.1 24为掩码</p><p>[  ]  shutdown  关闭接口</p><p>[  ]  undo shutdown  激活接口</p><h6 id="配置用户通过password方式登录设备"><a href="#配置用户通过password方式登录设备" class="headerlink" title="配置用户通过password方式登录设备"></a>配置用户通过password方式登录设备</h6><p>[  ]  user-interface vty 0 4</p><p>[  ]  set authentication password cipher ************     cipher为display时密码加密显示，还可以写为<strong>simple</strong>直接显示密码，*为密码</p><p>用法：用来进入指定的用户视图并配置用户认证方式为password。系统支持用户界面包括Console用户界面和VTY用户界面，Console界面用于本地登录，VTY界面用于远程登录。默认情况下，设备一般最多支持15个用户同时通过VTY方式访问。</p><h3 id="常用的系统快捷键"><a href="#常用的系统快捷键" class="headerlink" title="常用的系统快捷键"></a>常用的系统快捷键</h3><ul><li>ctrl+a：将光标移动到当前行的开头（有时会是选中全网，感觉不太好用）</li><li>ctrl+c：中止当前命令运行</li><li>ctrl+e：将光标移动到当前行的末尾</li><li>ctrl+z：返回到用户视图模式</li></ul>]]></content>
+      
+      
+      <categories>
+          
+          <category> 零碎笔记 </category>
+          
+      </categories>
+      
+      
+        <tags>
+            
+            <tag> 随便记记，常用的知识 </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+    
+    <entry>
       <title>NodeJS常用的知识</title>
       <link href="/2023/04/10/NodeJS%E5%B8%B8%E7%94%A8%E7%9A%84%E7%9F%A5%E8%AF%86/"/>
       <url>/2023/04/10/NodeJS%E5%B8%B8%E7%94%A8%E7%9A%84%E7%9F%A5%E8%AF%86/</url>
